@@ -56,6 +56,13 @@ First need to instance the API:
     * api.delete_request("/API_PATH", params={}, headers={})
       -> Returns delete from Octa API.
 
+
+##### Tickets
+
+    * api.search_by_custom_field("YOU_OCTA_SUB_DOMAIN", "CUSTOM_FIELD_ID", "Value to search")
+      -> Returns search from Octa tickets by one custom field.
+
+
 ## Contributing / Problems?
 
 If you have encountered any problem, difficulty or bug, please start by opening a issue.

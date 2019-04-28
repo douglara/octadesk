@@ -3,11 +3,17 @@ require "rest-client"
 require 'ostruct'
 require 'json'
 
+require "octadesk/tickets/ticket"
+
 module Octadesk
   class Api
+
+    # Includes
+    include Octadesk::Tickets::Ticket
+
+    # Attrbutes
     attr_accessor :user_token
 
-    # Aqui nós recebemos a chave da Api quando o usuário inicializa a nossa classe
     def initialize(args={})
       @user_email = args[:user_email]
       @api_token = args[:api_token]
@@ -46,7 +52,7 @@ module Octadesk
       begin
         headers = headers.merge({
           'accept' => 'application/json', 
-          'Content-Type' => 'application/json',
+          'Content-Type' => 'application/x-www-form-urlencoded',
           'Authorization' => "Bearer #{@user_token}"
         })
 
@@ -136,7 +142,6 @@ module Octadesk
 
     def get_token(user_email)
       header = { 
-        'accept' => 'application/json', 
         'apiToken' => @api_token,
         'username' => "#{user_email}".downcase
       }
