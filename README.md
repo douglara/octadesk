@@ -60,7 +60,7 @@ First need to instance the API:
 
 If you have encountered any problem, difficulty or bug, please start by opening a issue.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/octadesk. This project is intended to be a safe, welcoming space for collaboration.
+Bug reports and pull requests are welcome on GitHub at https://github.com/douglaslaraa/octadesk. This project is intended to be a safe, welcoming space for collaboration.
 
 ## License
 
