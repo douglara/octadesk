@@ -5,6 +5,8 @@ require 'json'
 
 module Octadesk
   class Api
+    attr_accessor :user_token
+
     # Aqui nós recebemos a chave da Api quando o usuário inicializa a nossa classe
     def initialize(args={})
       @user_email = args[:user_email]
