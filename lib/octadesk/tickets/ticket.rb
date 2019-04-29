@@ -40,6 +40,11 @@ module Octadesk
         end
 
       end
+
+      def create_ticket(body)
+        payload = body.to_json
+        post_request("/tickets", payload)
+      end
     
     end
   end

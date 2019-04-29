@@ -39,7 +39,7 @@ First need to instance the API:
 
     * api.get_request("/API_PATH", params={}, headers={})
       -> Returns get from Octa API.
-      -> Example: @api.get_request("/persons?email=custumer@email.com")
+      -> Example: api.get_request("/persons?email=custumer@email.com")
 
     * api.post_request("/API_PATH", params={}, headers={})
       -> Returns post from Octa API.
@@ -61,7 +61,16 @@ First need to instance the API:
 
     * api.search_by_custom_field("YOU_OCTA_SUB_DOMAIN", "CUSTOM_FIELD_ID", "Value to search")
       -> Returns search from Octa tickets by one custom field.
-
+    * api.create_ticket(body)
+      -> Create ticket.
+      -> Example: api.create_ticket({
+              "summary": 'Ticket title',
+              "numberChannel": 0,
+              "inbox": {
+                "domain": "",
+                "email": ""
+                }
+            })
 
 ## Contributing / Problems?
 

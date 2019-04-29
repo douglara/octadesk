@@ -16,6 +16,21 @@ RSpec.describe Octadesk do
       }
 
       context 'tickets' do 
+        context 'create' do 
+          it 'success' do 
+            ticket = {
+              "summary": 'Ticket title',
+              "numberChannel": 0,
+              "inbox": {
+                "domain": "",
+                "email": ""
+                }
+            }
+
+            result = @api.create_ticket(ticket)
+            expect(result.status_code).to be 200
+          end
+        end
         context 'search' do
           it 'by custom field' do
             result = @api.search_by_custom_field(ENV['OCTA_APP_SUB_DOMAIN'], ENV['OCTA_TICKET_CUSTOM_FIELD_ID'], ENV['OCTA_TICKET_CUSTOM_FIELD_VALUE'])
