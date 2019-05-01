@@ -71,6 +71,8 @@ First need to instance the API:
                 "email": ""
                 }
             })
+    * api.get_ticket("TICKET_NUMBER")
+      -> Returns ticket, attention because it is by ticket number and not by ticket id.
 
 ## Contributing / Problems?
 

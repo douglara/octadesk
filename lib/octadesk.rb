@@ -60,7 +60,7 @@ module Octadesk
         api_response_kind = headers.delete(:api_response_kind) if api_response_kind.nil?
         api_response_kind = 'object' if api_response_kind.nil?
 
-        parse_response(api_response_kind, RestClient.post("#{@endpoint_url}#{action}", params, headers))
+        parse_response(api_response_kind, RestClient.post("#{@endpoint_url}#{action}", params.to_json , headers))
       rescue => e
         parse_response('object', e.response)
       end

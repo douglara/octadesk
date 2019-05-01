@@ -38,6 +38,17 @@ RSpec.describe Octadesk do
             expect(result.status_code).to be 200
           end
         end
+
+        context 'get' do
+          it 'success' do
+            result = @api.get_ticket(876)
+            expect(result.status_code).to be 200
+          end
+          it 'not fount' do
+            result = @api.get_ticket(8456476)
+            expect(result.status_code).to be 404
+          end
+        end
       end
       context 'generics calls' do
         it "get" do

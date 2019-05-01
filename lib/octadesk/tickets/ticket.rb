@@ -45,6 +45,10 @@ module Octadesk
         payload = body.to_json
         post_request("/tickets", payload)
       end
+
+      def get_ticket(number)
+        get_request("/tickets/#{number}")
+      end
     
     end
   end
