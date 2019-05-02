@@ -60,7 +60,9 @@ module Octadesk
         api_response_kind = headers.delete(:api_response_kind) if api_response_kind.nil?
         api_response_kind = 'object' if api_response_kind.nil?
 
-        parse_response(api_response_kind, RestClient.post("#{@endpoint_url}#{action}", params.to_json , headers))
+        params = params.to_json  unless params.kind_of? String
+
+        parse_response(api_response_kind, RestClient.post("#{@endpoint_url}#{action}", params , headers))
       rescue => e
         parse_response('object', e.response)
       end
@@ -78,7 +80,9 @@ module Octadesk
         api_response_kind = headers.delete(:api_response_kind) if api_response_kind.nil?
         api_response_kind = 'object' if api_response_kind.nil?
 
-        parse_response(api_response_kind, RestClient.put("#{@endpoint_url}#{action}", params.to_json, headers))
+        params = params.to_json  unless params.kind_of? String
+
+        parse_response(api_response_kind, RestClient.put("#{@endpoint_url}#{action}", params, headers))
       rescue => e
         parse_response('object', e.response)
       end
@@ -95,6 +99,8 @@ module Octadesk
         api_response_kind = headers.delete('api_response_kind')
         api_response_kind = headers.delete(:api_response_kind) if api_response_kind.nil?
         api_response_kind = 'object' if api_response_kind.nil?
+
+        params = params.to_json  unless params.kind_of? String
 
         parse_response(api_response_kind, RestClient.patch("#{@endpoint_url}#{action}", params, headers))
       rescue => e
@@ -113,6 +119,8 @@ module Octadesk
         api_response_kind = headers.delete('api_response_kind')
         api_response_kind = headers.delete(:api_response_kind) if api_response_kind.nil?
         api_response_kind = 'object' if api_response_kind.nil?
+
+        params = params.to_json  unless params.kind_of? String
 
         parse_response(api_response_kind, RestClient.head("#{@endpoint_url}#{action}", params))
       rescue => e

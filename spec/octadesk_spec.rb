@@ -30,6 +30,26 @@ RSpec.describe Octadesk do
             result = @api.create_ticket(ticket)
             expect(result.status_code).to be 200
           end
+
+          it 'success with html elements' do
+            ticket = {
+              "summary": "TEST API - System.....",
+              "numberChannel": 0,
+              "inbox": {
+                "domain": "",
+                "email": ""
+                },
+              "comments": {
+                "internal": { 
+                  "content": "<html><head></head><body><p>Buy details: <a href=\"https://..../sales/19861176574564/detail?\" target=\"_blank\">https://..../sales/19861176574564/detail??</a></p></body></html>"
+                 }
+              },
+              "customField": { "ml_order_id": "19861176574564" }
+            }
+
+            result = @api.create_ticket(ticket)
+            expect(result.status_code).to be 200
+          end
         end
         context 'search' do
           it 'by custom field' do
