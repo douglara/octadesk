@@ -49,6 +49,10 @@ module Octadesk
       def get_ticket(number)
         get_request("/tickets/#{number}")
       end
+
+      def get_ticket_interactions(number)
+        get_request("/tickets/#{number}/interactions")
+      end
     
     end
   end

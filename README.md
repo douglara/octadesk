@@ -73,6 +73,9 @@ First need to instance the API:
             })
     * api.get_ticket("TICKET_NUMBER")
       -> Returns ticket, attention because it is by ticket number and not by ticket id.
+      
+    * api.get_ticket_interactions("TICKET_NUMBER")
+      -> Returns ticket interactions, attention because it is by ticket number and not by ticket id.
 
 ## Contributing / Problems?
 
